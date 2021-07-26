@@ -8,21 +8,21 @@ if fs.exists("prefs") == true then
 else
     print("no preferences found")
     function type()
-        clientType
+        clientType = ""
         repeat
-        print("is this a master or a slave?")
-        local input = read()
+            print("is this a master or a slave?")
+            local input = read()
 
-        if "slave" == input then
-            print("this is set as slave")
-            clientType == "slave"
-        elseif "master" == input then
-            print("this device is now set as master")
-            clientType == "master"
-        else
-            print("i dont understand...")
-        end
-    until clientType ~= ""
+            if "slave" == input then
+                print("this is set as slave")
+                clientType == "slave"
+            elseif "master" == input then
+                print("this device is now set as master")
+                clientType == "master"
+            else
+                print("i dont understand...")
+            end
+        until clientType ~= ""
     end
 end
 
