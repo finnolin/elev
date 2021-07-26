@@ -31,10 +31,10 @@ if "new" == action then
         print("table is empty, creating table...")
         tFloors = {}
         table.insert(tFloors, {floorName = newFloor, floorLevel= newFloorLevel})
-        
+
         print("Current Floor List:")
         for i=1, #tFloors do
-            print(i.. ", " ..tFloors[i].floorName.. "Level: ".. tFloors[i].floorLevel)
+            print(i.. "- " ..tFloors[i].floorName.. " Level: ".. tFloors[i].floorLevel)
         end    
     else
         print("adding to table...")
@@ -46,5 +46,10 @@ if "new" == action then
         end    
     end
 
+    print("Current Floor List:")
+    for i=1, #tFloors do
+        print(i.. ", " ..tFloors[i].floorName.. "Level: ".. tFloors[i].floorLevel)
+    end  
+    save(tFloors, "dbFloors")
     
 end
