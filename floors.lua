@@ -18,7 +18,7 @@ function load(name)
 end
 
 function listFloors(table)
-    print("Current Floor List:")
+    print("---Floor List---")
     for i=1, #table do
         print(i.. " // " ..table[i].floorName.. " // Level: ".. table[i].floorLevel)
     end 
@@ -59,6 +59,8 @@ end
 if "remove" == action then
     print("Which floor should be removed?")
     local removedFloor = read()
+    print("removing floor: "..tFloors[removedFloor].floorName)
     table.remove(tFloors, removedFloor)
+    save(tFloors, "dbFloors")
     return
 end
