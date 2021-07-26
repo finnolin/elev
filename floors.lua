@@ -18,6 +18,7 @@ end
 
 if fs.exists("dbFloors") == true then
     tFloors = load("dbFloors")
+    print("Floor Data Base found, ... loading...")
 end
 
 if "new" == action then
@@ -27,12 +28,14 @@ if "new" == action then
     local newFloorLevel = read()
 
     if tFloors == nil then
+        print("table is empty, creating table...")
         tFloors = {}
-        tFloors[1] = {floorName = newFloor, floorLevel = newFloorLevel}
+        table.insert(tFloors, {floorName = newFloor, floorLevel= newFloorLevel})
         for i=1, #tFloors do
             Print(tFloors[i].floorName)
         end    
     else
+        print("adding to table...")
         table.insert(tFloors, {floorName = newFloor, floorLevel= newFloorLevel})
         for i=1, #tFloors do
             Print(tFloors[i].floorName)
