@@ -14,7 +14,7 @@ github_url = "https://raw.github.com/finnolin/elev/master/"..github_path
 tApps = {"github" , "initfloors"} 
 
 -- get
-if "get" = action then
+if "get" == action then
 
     if fs.exists( program ) then
         print( "File "..program.." already exists" )
@@ -28,26 +28,26 @@ if "get" = action then
     local file = fs.open( program, "w" )
     file.write( response )
     file.close()
-return
+    return
 end
 
 --update
 if "update" = action then
     print( "Updating Apps" )
-    return
   
     for i=1, #tApps do
         write(tApps[i])
     end
    
-  local request = http.get( github_url )
-  local response = request.readAll()
-  request.close()
+    local request = http.get( github_url )
+    local response = request.readAll()
+    request.close()
    
-  --local file = fs.open( program, "w" )
-  --file.write( response )
-  --file.close()
+    --local file = fs.open( program, "w" )
+    --file.write( response )
+    --file.close()
   
-  end
+    return
+end
 
 print("done!")
