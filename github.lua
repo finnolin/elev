@@ -6,7 +6,7 @@ local program = tArgs[2]
 local github_path = tArgs[3]
 
 local github_url = "https://raw.github.com/finnolin/elev/master/"
-local tApps = {"github" , "floors", "functions", "elev"}
+local tApps = {"github" , "floors", "functions", "elevMaster"}
 
 -- get
 if "get" == action then
