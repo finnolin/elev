@@ -1,4 +1,4 @@
-require "functions"
+os.loadAPI("functions")
 
 functions.load("dbFloors")
 
