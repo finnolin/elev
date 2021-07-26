@@ -16,7 +16,7 @@ function load(name)
     return textutils.unserialize(data)
 end
 
-load(saved_Floors)
+load("dbFloors")
 
 if "new" == action then
     print("Floor Name:")
