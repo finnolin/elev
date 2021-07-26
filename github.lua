@@ -10,8 +10,8 @@ local action = tArgs[1]
 local program = tArgs[2]
 local github_path = tArgs[3]
 
-github_url = "https://raw.github.com/finnolin/elev/master/"..github_path
-tApps = {"github" , "initfloors"} 
+local github_url = "https://raw.github.com/finnolin/elev/master/"
+local tApps = {"github" , "initfloors"}
 
 -- get
 if "get" == action then
@@ -36,12 +36,14 @@ if "update" == action then
     print( "Updating Apps" )
   
     for i=1, #tApps do
-        write(tApps[i])
+        print("Updating "..tApps[i].."...")
+        local appUrl = github_url..tApps[i]..".lua"
+        print("path: "..appUrl)
     end
    
-    local request = http.get( github_url )
-    local response = request.readAll()
-    request.close()
+    --local request = http.get( github_url )
+    --local response = request.readAll()
+    --request.close()
    
     --local file = fs.open( program, "w" )
     --file.write( response )
