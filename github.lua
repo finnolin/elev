@@ -11,10 +11,10 @@ local tApps = {"github" , "initfloors"}
 -- get
 if "get" == action then
 
-    if fs.exists( program ) then
-        print( "File "..program.." already exists" )
-        return
-    end
+    --if fs.exists( program ) then
+    --    print( "File "..program.." already exists" )
+    --    return
+    --end
 
     local request = http.get( github_url )
     local response = request.readAll()
@@ -27,7 +27,7 @@ if "get" == action then
 end
 
 --update
-if "update" == action then
+if "updateall" == action then
     print( "Updating Apps" )
   
     for i=1, #tApps do
@@ -43,11 +43,10 @@ if "update" == action then
         file.write( response )
         file.close()
         
-        print(" Everything is up to date!")
 
     end
    
-
+    print(" Everything is up to date!")
    
     --local file = fs.open( program, "w" )
     --file.write( response )
