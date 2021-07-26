@@ -1,11 +1,6 @@
 
 local tArgs = { ... }
  
-if (#tArgs ~= 3) then
-  print( "USAGE: github get <GITHUB-PATH> <PROGRAM-NAME>" )
-  return
-end
- 
 local action = tArgs[1]
 local program = tArgs[2]
 local github_path = tArgs[3]
@@ -39,11 +34,18 @@ if "update" == action then
         print("Updating "..tApps[i].."...")
         local appUrl = github_url..tApps[i]..".lua"
         print("path: "..appUrl)
+
+        local request = http.get( appUrl )
+        local response = request.readAll()
+        request.close()
+
+        local file = fs.open( tApps[i], "w" )
+        file.write( response )
+        file.close()
+
     end
    
-    --local request = http.get( github_url )
-    --local response = request.readAll()
-    --request.close()
+
    
     --local file = fs.open( program, "w" )
     --file.write( response )
