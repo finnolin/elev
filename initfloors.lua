@@ -1,9 +1,8 @@
-elevFloors = {"Storage"}
+elevFloors = {}
 
-print(elevFloors[1])
 
-function save(elevFloors, elevFloors)
-    local file = fs.open (elevFloors,"w")
+function save(elevFloors, "savedFloors")
+    local file = fs.open ("savedFloors","w")
     file.write(textutils.serialize (elevFloors))
     file.close()
 end
