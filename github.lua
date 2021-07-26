@@ -32,7 +32,7 @@ if "get" == action then
 end
 
 --update
-if "update" = action then
+if "update" == action then
     print( "Updating Apps" )
   
     for i=1, #tApps do
