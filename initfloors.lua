@@ -6,3 +6,5 @@ function save(elevFloors, "savedFloors")
     file.write(textutils.serialize (elevFloors))
     file.close()
 end
+
+print(" floors initiated ")
