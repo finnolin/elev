@@ -13,14 +13,14 @@ function load(name)
     local file = fs.open(name,"r")
     local data = file.readAll()
     file.close()
-    return textutils.unserialize(data)
     print("file loaded")
+    return textutils.unserialize(data)
 end
 
 function listFloors(table)
     print("Current Floor List:")
     for i=1, #table do
-        print(i.. "- " ..table[i].floorName.. " Level: ".. table[i].floorLevel)
+        print(i.. " // " ..table[i].floorName.. " // Level: ".. table[i].floorLevel)
     end 
 end
 
@@ -48,4 +48,17 @@ if "new" == action then
     listFloors(tFloors)
     save(tFloors, "dbFloors")
     
+    return
+end
+
+if "list" == action then
+    listFloors(tFloors)
+    return
+end
+
+if "remove" == action then
+    print("Which floor should be removed?")
+    local removedFloor = read()
+    table.remove(tFloors, removedFloor)
+    return
 end
