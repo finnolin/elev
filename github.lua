@@ -7,7 +7,7 @@ if (#tArgs ~= 3) then
 end
  
 local action = tArgs[1]
-local program-name = tArgs[2]
+local program = tArgs[2]
 local github_path = tArgs[3]
 
 github_url = "https://raw.github.com/finnolin/elev/master/"..github_path
@@ -15,25 +15,20 @@ tApps = {"github" , "initfloors"}
 
 -- get
 if "get" = action then
-  return
 
- 
-if fs.exists( program ) then
-  print( "File "..program.." already exists" )
-  return
-end
+    if fs.exists( program ) then
+        print( "File "..program.." already exists" )
+        return
+    end
 
+    local request = http.get( github_url )
+    local response = request.readAll()
+    request.close()
  
-
- 
-local request = http.get( github_url )
-local response = request.readAll()
-request.close()
- 
-local file = fs.open( program, "w" )
-file.write( response )
-file.close()
-
+    local file = fs.open( program, "w" )
+    file.write( response )
+    file.close()
+return
 end
 
 --update
