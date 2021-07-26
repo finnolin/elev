@@ -1,4 +1,5 @@
 tFloors = {}
+tFloors[1] = {"test", 1}
 
 
 function save(table, name)

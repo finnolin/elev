@@ -24,7 +24,12 @@ if "new" == action then
     print("Floor Level")
     local newFloorLevel = read()
 
-    table.insert(tFloors, {floorName = newFloor, floorLevel= newFloorLevel})
+    if tFloors == nil then
+        tFloors = {}
+        tFloors[1] = {floorName = newFloor, floorLevel= newFloorLevel}
+    else
+        table.insert(tFloors, {floorName = newFloor, floorLevel= newFloorLevel})
+    end
 
     for i=1, #tFloors do
         Print(tFloors[i].floorName)
