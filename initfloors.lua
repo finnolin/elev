@@ -8,4 +8,4 @@ function save(table, name)
     print(" floors initiated ")
 end
 
-save(tFloors, saved_Floors)
+save(tFloors, dbFloors)
