@@ -42,6 +42,8 @@ if "update" == action then
         local file = fs.open( tApps[i], "w" )
         file.write( response )
         file.close()
+        
+        print(" Everything is up to date!")
 
     end
    
