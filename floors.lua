@@ -16,7 +16,9 @@ function load(name)
     return textutils.unserialize(data)
 end
 
-load("dbFloors")
+if fs.exists("dbFloors") == true then
+    tFloors = load("dbFloors")
+end
 
 if "new" == action then
     print("Floor Name:")
@@ -26,13 +28,16 @@ if "new" == action then
 
     if tFloors == nil then
         tFloors = {}
-        tFloors[1] = {floorName = newFloor, floorLevel= newFloorLevel}
+        tFloors[1] = {floorName = newFloor, floorLevel = newFloorLevel}
+        for i=1, #tFloors do
+            Print(tFloors[i].floorName)
+        end    
     else
         table.insert(tFloors, {floorName = newFloor, floorLevel= newFloorLevel})
+        for i=1, #tFloors do
+            Print(tFloors[i].floorName)
+        end    
     end
 
-    for i=1, #tFloors do
-        Print(tFloors[i].floorName)
-    end
-
+    
 end
