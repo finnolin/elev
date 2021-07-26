@@ -7,20 +7,24 @@ if (#tArgs ~= 3) then
 end
  
 local action = tArgs[1]
-local github_path = tArgs[2]
-local program = tArgs[3]
- 
-if "get" ~= action then
-  print( "Only 'get' is supported right now" )
+local program-name = tArgs[2]
+local github_path = tArgs[3]
+
+github_url = "https://raw.github.com/finnolin/elev/master/"..github_path
+tApps = {"github" , "initfloors"} 
+
+-- get
+if "get" = action then
   return
-end
+
  
 if fs.exists( program ) then
   print( "File "..program.." already exists" )
   return
 end
+
  
-local github_url = "https://raw.github.com/finnolin/elev/master/"..github_path
+
  
 local request = http.get( github_url )
 local response = request.readAll()
@@ -29,3 +33,26 @@ request.close()
 local file = fs.open( program, "w" )
 file.write( response )
 file.close()
+
+end
+
+--update
+if "update" = action then
+    print( "Updating Apps" )
+    return
+  
+    for i=1, #tApps do
+        write(tApps[i])
+    end
+   
+  local request = http.get( github_url )
+  local response = request.readAll()
+  request.close()
+   
+  --local file = fs.open( program, "w" )
+  --file.write( response )
+  --file.close()
+  
+  end
+
+print("done!")
