@@ -6,8 +6,9 @@ if fs.exists("prefs") == true then
     tFloors = load("prefs")
     print("preferences loaded")
 else
+    print("no preferences found")
     function type()
-        (print("is this a master or a slave")
+        print("is this a master or a slave")
         clientType = read()
         if "slave" == clientType then
             print("this is set as slave")
