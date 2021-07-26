@@ -3,4 +3,6 @@ function load(savedFloors)
     local data = file.readAll()
     file.close()
     return textutils.unserialize(data)
-    end
+end
+
+print("")
